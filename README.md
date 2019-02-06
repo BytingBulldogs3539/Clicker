@@ -1,0 +1,2 @@
+# Clicker
+A CPS counter
