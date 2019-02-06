@@ -6,7 +6,7 @@
       body {
         margin: 0px;
         padding: 0px;
-        background-color: rgb(50, 50, 50);
+        background-image: linear-gradient(150deg, rgb(100, 150, 150), rgb(0, 0, 0));
       }
       * {
         font-family: Helvetica;
@@ -19,11 +19,12 @@
         color: rgb(255, 255, 255);
         border: none;
         margin: 1px 0px 0px 2px;
+        padding: 5px 0px 0px 0px;
       }
       #gradient {
         width: 204px;
         height: 204px;
-        background-image: linear-gradient(0deg, rgb(0, 100, 100), rgb(50, 255, 255));
+        background-image: linear-gradient(rgb(50, 255, 255), rgb(0, 100, 100));
         border-radius: 102px;
       }
       button:focus {
@@ -33,11 +34,12 @@
   </head>
   <body>
     <div id="gradient">
-      <button id="clicker" onclick="cl()"><b>0 CPS</b></button>
+      <button id="clicker" onclick="cl()"><b>Click to Begin</b></button>
     </div>
     <script>
       document.getElementById("gradient").style.marginLeft = (window.innerWidth / 2 - 102) + "px";
       document.getElementById("gradient").style.marginTop = (window.innerHeight / 2 - 102) + "px";
+      document.getElementById("gradient").style.marginBottom = (window.innerHeight / 2 - 102) + "px";
       var clicks = 0;
       var mil;
       document.body.onclick = function() {
