@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clicker Counter</title>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+        background-color: rgb(50, 50, 50);
+      }
+      * {
+        font-family: Helvetica;
+      }
+      button {
+        height: 200px;
+        width: 200px;
+        border-radius: 100px;
+        background-color: rgb(25, 25, 25);
+        color: rgb(255, 255, 255);
+        border-style: solid;
+        border-color: rgb(0, 127, 127);
+      }
+      button:focus {
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="clicker" onclick="cl()"><b>0 CPS</b></button>
+    <script>
+      document.getElementById("clicker").style.marginLeft = (window.innerWidth / 2 - 100) + "px";
+      document.getElementById("clicker").style.marginTop = (window.innerHeight / 2 - 100) + "px";
+      var clicks = 0;
+      var mil;
+      document.body.onclick = function() {
+        mil = new Date().getTime();
+        document.body.onclick = function() {};
+      };
+      console.log("D");
+      function cl() {
+        clicks++;
+      }
+      setInterval(function() {
+        if (mil) {
+          document.getElementById("clicker").innerHTML = "<b>" + Math.floor(clicks / ((new Date().getTime() - mil) / 1000) * 100) / 100 + " CPS</b>";
+        }
+      }, 1);
+    </script>
+  </body>
+</html>
