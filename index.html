@@ -42,6 +42,7 @@
       document.getElementById("gradient").style.marginBottom = (window.innerHeight / 2 - 102) + "px";
       var clicks = 0;
       var mil;
+      var lastClick;
       document.body.onclick = function() {
         mil = new Date().getTime();
         document.body.onclick = function() {};
@@ -49,10 +50,21 @@
       console.log("D");
       function cl() {
         clicks++;
+        lastClick = new Date().getTime();
       }
       setInterval(function() {
         if (mil) {
           document.getElementById("clicker").innerHTML = "<b>" + Math.floor(clicks / ((new Date().getTime() - mil) / 1000) * 100) / 100 + " CPS</b>";
+        }
+        if (lastClick - new Date().getTime() < -3000) {
+          document.getElementById("clicker").innerHTML = "<b>Click to Begin</b>";
+          clicks = 0;
+          mil = undefined;
+          lastClick = undefined;
+          document.body.onclick = function() {
+            mil = new Date().getTime();
+            document.body.onclick = function() {};
+          };
         }
       }, 1);
     </script>
