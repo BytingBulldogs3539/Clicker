@@ -17,8 +17,14 @@
         border-radius: 100px;
         background-color: rgb(25, 25, 25);
         color: rgb(255, 255, 255);
-        border-style: solid;
-        border-color: rgb(0, 127, 127);
+        border: none;
+        margin: 1px 0px 0px 2px;
+      }
+      #gradient {
+        width: 204px;
+        height: 204px;
+        background-image: linear-gradient(0deg, rgb(0, 100, 100), rgb(50, 255, 255));
+        border-radius: 102px;
       }
       button:focus {
         outline: none;
@@ -26,10 +32,12 @@
     </style>
   </head>
   <body>
-    <button id="clicker" onclick="cl()"><b>0 CPS</b></button>
+    <div id="gradient">
+      <button id="clicker" onclick="cl()"><b>0 CPS</b></button>
+    </div>
     <script>
-      document.getElementById("clicker").style.marginLeft = (window.innerWidth / 2 - 100) + "px";
-      document.getElementById("clicker").style.marginTop = (window.innerHeight / 2 - 100) + "px";
+      document.getElementById("gradient").style.marginLeft = (window.innerWidth / 2 - 102) + "px";
+      document.getElementById("gradient").style.marginTop = (window.innerHeight / 2 - 102) + "px";
       var clicks = 0;
       var mil;
       document.body.onclick = function() {
